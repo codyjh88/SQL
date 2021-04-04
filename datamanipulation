@@ -1,0 +1,2 @@
+--formats military time hhmm into hh:mm am|pm
+LEFT ((CONVERT(varchar(15),CAST((substring ([begintime],1,2))+':'+(substring ([begintime],3,2)) AS TIME),100)), LEN(CONVERT(varchar(15),CAST((substring ([begintime],1,2))+':'+(substring ([begintime],3,2)) AS TIME),100)) - 2) + ' ' + RIGHT(CONVERT(VARCHAR(30), (CONVERT(varchar(15),CAST((substring ([begintime],1,2))+':'+(substring ([begintime],3,2)) AS TIME),100)), 100), 2) AS 'Appointment Time' 
